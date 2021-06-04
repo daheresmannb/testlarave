@@ -11,12 +11,25 @@ class CreateEnfermedadsTable extends Migration
      *
      * @return void
      */
-    public function up()
-    {
-        Schema::create('enfermedads', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-        });
+    public function up() {
+        Schema::create(
+            'enfermedads', 
+            function (Blueprint $table) {
+                $table->id();
+                $table->string("nombre_enfermedad");
+                $table->unsignedBigInteger("usuario_id");
+                $table->unsignedBigInteger("infermedad_clase_id");
+                $table->string("detalle");
+
+                $table->foreign('usuario_id')
+                ->references('id')
+                ->on('users');
+                $table->foreign('infermedad_clase_id')
+                ->references('id')
+                ->on('enfermedad_clases');
+                $table->timestamps();
+            }
+        );
     }
 
     /**
@@ -24,8 +37,7 @@ class CreateEnfermedadsTable extends Migration
      *
      * @return void
      */
-    public function down()
-    {
+    public function down() {
         Schema::dropIfExists('enfermedads');
     }
 }

@@ -6,11 +6,12 @@ use Illuminate\Http\Request;
 use Hash;
 use Session;
 use App\Models\User;
+use App\Models\Enfermedad;
+use App\Models\EnfermedadClase;
 use Illuminate\Support\Facades\Auth;
 use Validator;
 
 class CustomAuthController extends Controller {
-
     public function index() {
         return view('auth.login');
     }  
@@ -23,14 +24,22 @@ class CustomAuthController extends Controller {
             ]
         ); 
         if ($val->fails()) {
-            return redirect("login")->withSuccess('Parametros requeridos');
+            return redirect("login")->with(
+                'message_e', 
+                'Parametros requeridos'
+            );
         }  else {
             $credentials = $request->only('rut', 'password');
             if (Auth::attempt($credentials)) {
-                return redirect()->intended('home')
-                ->withSuccess('Has iniciado sesion');
+                return redirect()->intended('home')->with(
+                    'message', 
+                    'Has iniciado sesion'
+                );
             } else {
-                return redirect("login")->withSuccess('No se puede iniciar sesion');
+                return redirect("login")->with(
+                    'message_e', 
+                    'No se puede iniciar sesion'
+                );
             }
         }
     }
@@ -54,10 +63,16 @@ class CustomAuthController extends Controller {
             ]
         ); 
         if ($val->fails()) {
-            return redirect("auth.registration")->withSuccess('No se puede iniciar sesion');
-        }  else {
+            return redirect("auth.registration")->with(
+                'message', 
+                'No se puede iniciar sesion'
+            );
+        } else {
             User::create($request->all());
-            return redirect("dashboard")->withSuccess('Tu has iniciado sesion');
+            return redirect("login")->with(
+                'message', 
+                'Te has registrado con exito!'
+            );
         }
     }
 
@@ -66,20 +81,28 @@ class CustomAuthController extends Controller {
       return User::create($data);
     }    
     
-    public function dashboard() {
-        if(Auth::check()){
-            return view('dashboard');
-        }
-  
-        return redirect("login")->withSuccess('You are not allowed to access');
-    }
 
     public function home() {
-        if(Auth::check()){
-            return view('home.home');
+        if(Auth::check()) {
+            $n_tipos_enf = EnfermedadClase::count();
+            $n_enfermedades = Enfermedad::count();
+            
+            return view(
+                'home.home', [
+                    "n_enfermedades"      => $n_enfermedades,
+                    "n_tipo_enfermedades" => $n_tipos_enf 
+                ]
+            );
         }
   
-        return redirect("login")->withSuccess('You are not allowed to access');
+        return redirect("login")->with(
+            'message', 
+            'Error al iniciar sesion'
+        );
+    }
+
+    public function contacto() {  
+        return view("contacto.contacto");
     }
     
     public function signOut() {

@@ -1,11 +1,25 @@
 @extends('dashboard')
 
 @section('content')
+
 <main class="signup-form">
     <div class="cotainer">
         <div class="row justify-content-center">
             <div class="col-md-4">
                 <div class="card">
+                    @if(session()->has('message'))
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                          <strong>{{ session()->get('message') }}</strong> 
+                          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    @endif
+
+                    @if(session()->has('message_e'))
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                          <strong>{{ session()->get('message_e') }}</strong> 
+                          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    @endif
                     <h3 class="card-header text-center">Registro de usuario</h3>
                     <div class="card-body">
                         <form action="{{ route('register.custom') }}" method="POST">
