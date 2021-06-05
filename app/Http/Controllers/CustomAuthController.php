@@ -31,10 +31,7 @@ class CustomAuthController extends Controller {
         }  else {
             $credentials = $request->only('rut', 'password');
             if (Auth::attempt($credentials)) {
-                return redirect()->intended('home')->with(
-                    'message', 
-                    'Has iniciado sesion'
-                );
+                return redirect()->intended('home');
             } else {
                 return redirect("login")->with(
                     'message_e', 
@@ -86,17 +83,21 @@ class CustomAuthController extends Controller {
         if(Auth::check()) {
             $n_tipos_enf = EnfermedadClase::count();
             $n_enfermedades = Enfermedad::count();
-            
+            $us = Auth::user();
+
+            $usuario = User::with("enfermedades")->find($us->id);
+
             return view(
                 'home.home', [
                     "n_enfermedades"      => $n_enfermedades,
-                    "n_tipo_enfermedades" => $n_tipos_enf 
+                    "n_tipo_enfermedades" => $n_tipos_enf,
+                    "usuario"             => $usuario
                 ]
             );
         }
   
         return redirect("login")->with(
-            'message', 
+            'message_e', 
             'Error al iniciar sesion'
         );
     }

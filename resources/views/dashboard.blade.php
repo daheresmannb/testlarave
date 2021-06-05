@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-light navbar-expand-lg mb-5" style="background-color: #e3f2fd;">
+    <nav class="navbar navbar-dark bg-dark border-dark navbar-expand-lg mb-5" style="background-color: #e3f2fd;">
         <div class="container">
             <a class="navbar-brand mr-auto" href="#">Salud AIEP</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -37,6 +37,11 @@
                         </a>
                     </li>
                     @endguest
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('contacto.contacto') }}">
+                            Contacto
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>

@@ -12,34 +12,34 @@
             <div class="col-md-6">
                 <div class="card">
                     
-    <div class="row">
-        <div class="col-md-12">
-            <div class="row justify-content-center">
-                <form  method="post" class="row justify-content-center">
-                    <fieldset class="row justify-content-center">
-                        <legend class="text-center header">Contactenos</legend>
-                        <div class="form-group text-center">
-                            <div class="col-md-12">
-                                <input type="email" id="email" name="email" type="text" placeholder="Correo de contacto" class="form-control">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="row justify-content-center">
+                                <form  method="post" action="{{ route('contacto.create') }}"  class="row justify-content-center">
+                                    <fieldset class="row justify-content-center">
+                                        <legend class="text-center header">Contactenos</legend>
+                                        <div class="form-group text-center">
+                                            <div class="col-md-12">
+                                                <input required type="email" id="correo_contacto" name="correo_contacto" type="text" placeholder="Correo de contacto" class="form-control">
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="form-group">
+                                            <div class="col-md-12">
+                                                <textarea required class="form-control" id="comentario" name="comentario" placeholder="Ingrese su comentario" rows="7"></textarea>
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="row justify-content-right form-group">
+                                            <button type="submit" class="btn btn-dark btn-block">
+                                                Enviar
+                                            </button> 
+                                        </div>
+                                    </fieldset>
+                                </form>
                             </div>
                         </div>
-                        <br>
-                        <div class="form-group">
-                            <div class="col-md-12">
-                                <textarea class="form-control" id="message" name="message" placeholder="Ingrese su comentario" rows="7"></textarea>
-                            </div>
-                        </div>
-                        <br>
-                        <div class="row justify-content-right form-group">
-                            <button type="submit" class="btn btn-primary btn-lg">   Enviar
-                            </button> 
-                        </div>
-                    </fieldset>
-                </form>
-              
-                    
-        </div>
-    </div>
+                    </div>
                 </div>
             </div>
         </div>

@@ -49,6 +49,22 @@
                             </div>
 
                             <div class="form-group mb-3">
+                                <input type="number" maxlength="3" minlength="1" min="1" max="150" placeholder="Edad" id="edad" class="form-control"
+                                    name="edad" required autofocus>
+                                @if ($errors->has('edad'))
+                                <span class="text-danger">{{ $errors->first('edad') }}</span>
+                                @endif
+                            </div>
+
+                            <div class="form-group mb-3">
+                            	<select name="sexo" class="form-control">
+                            		<option value="">Ingrese opcion</option>
+                            		<option value="0">Hombre</option>
+                            		<option value="1">Femenino</option>
+                            	</select>
+                            </div>
+
+                            <div class="form-group mb-3">
                                 <input type="date" placeholder="Fecha Nacimiento" id="fecha_nac" class="form-control" name="fecha_nac"
                                     required autofocus>
                                 @if ($errors->has('fecha_nac'))

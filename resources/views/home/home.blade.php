@@ -5,6 +5,9 @@
 	.container {
 		padding-top: 2.5vh;
 	}
+    .blanco {
+        color: white;
+    }
 </style>
 <main class="login-form">
     <div class="container">
@@ -35,8 +38,64 @@
 			    <h1 class="card-title">{{ $n_tipo_enfermedades }}</h1>
 			  </div>
 			</div>
-
-
+            <br>
+        </div>
+        <br><br>
+        <div class="card border-dark mb-6" style="max-width: 38rem;">
+            <div class="blanco card-header bg-dark border-dark">Ficha medica</div>
+            <div class="card-body">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputEmail4">Nombres</label>
+                        <label class="form-control">{{ $usuario->nombres }}</label>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputEmail4">Apellidos</label>
+                        <label class="form-control">{{ $usuario->apellidos }}</label>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label for="inputZip">Edad</label>
+                        <label class="form-control">{{ $usuario->edad }}</label>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="inputCity">Sexo</label>
+                        <label class="form-control">{{ $usuario->sexo }}</label>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="inputCity">Fecha Nacimiento</label>
+                        <label class="form-control">Sexo</label>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputEmail4">Dirección</label>
+                        <label class="form-control">Apellidos</label>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputEmail4">Ciudad</label>
+                        <label class="form-control">Apellidos</label>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputEmail4">Enfermedad</label>
+                        <label class="form-control">Apellidos</label>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputEmail4">Tipo</label>
+                        <label class="form-control">Apellidos</label>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        <label for="inputEmail4">Observación</label>
+                        <label class="form-control">Apellidos</label>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </main>

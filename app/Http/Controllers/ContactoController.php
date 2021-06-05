@@ -8,6 +8,10 @@ use Validator;
 
 class ContactoController extends Controller {
 
+    public function index() {  
+        return view("contacto.contacto");
+    }
+
     public function create(Request $request) {
         $val = Validator::make(
             $request->all(), [
@@ -16,15 +20,17 @@ class ContactoController extends Controller {
             ]
         ); 
         if ($val->fails()) {
-            $respuesta["exito"] = false;
-            $respuesta["msg"]   = "Parametros requeridos";
+            return redirect("login")->with(
+                'message_e', 
+                'Parametros requeridos'
+            );
         }  else {
-            
-            $respuesta["exito"]    = true;
-            $respuesta["msg"]      = "Registro exitoso";
             $respuesta["contacto"] = Contacto::create($request->all()); // request all() retorna un array con todos los parametros q vienen en la request
+            return redirect("login")->with(
+                'message', 
+                'Hemos recibido su mensaje, pronto le responderemos'
+            );
         }
-        return response()->json($respuesta);
     }
 
     public function show(Request $request) {

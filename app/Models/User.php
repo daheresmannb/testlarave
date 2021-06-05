@@ -20,6 +20,8 @@ class User extends Authenticatable {
     protected $fillable = [
         "nombres",
         "apellidos",
+        "edad",
+        "sexo",
         "rut",
         "email",
         "fecha_nac",
@@ -34,7 +36,7 @@ class User extends Authenticatable {
     }
 
     public function enfermedades() {
-        return $this->hasMany(Enfermedad::class);
+        return $this->hasMany(Enfermedad::class, "usuario_id");
     }
 
     /**

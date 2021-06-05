@@ -25,8 +25,8 @@ Route::get(
 )->name('login');
 Route::get(
 	'contacto', [
-		CustomAuthController::class, 
-		'contacto'
+		ContactoController::class, 
+		'index'
 	]
 )->name('contacto.contacto');
 Route::get(
@@ -70,3 +70,11 @@ Route::post(
 		'show'
 	]
 )->name('enfermedad.show'); 
+
+
+Route::get(
+	'contacto/crear', [
+		ContactoController::class, 
+		'create'
+	]
+)->name('contacto.create');

@@ -18,12 +18,14 @@ class AdminSeeder extends Seeder {
         	"nombres"   => "admin",
             "apellidos" => "admin",
             "rut"       => "12345678",
+            "edad"      => 30,
+            "sexo"      => 0,
             "email"     => "admin@admin.com",
             "fecha_nac" => "2021-06-03",
             "direccion" => "casa",
             "comuna"    => "casa",
             "region"    => "casa",
-            'password'  => Hash::make('password'),
+            'password'  => Hash::make('12345678'),
         ]);
     }
 }

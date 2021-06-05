@@ -20,7 +20,7 @@
                           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
                     @endif
-                    <h3 class="card-header text-center">Login</h3>
+                    <h3 class="card-header text-center">Iniciar sesion</h3>
                     <div class="card-body">
                         <form method="POST" action="{{ route('login.custom') }}">
                             @csrf
