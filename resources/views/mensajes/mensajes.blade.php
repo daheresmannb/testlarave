@@ -32,8 +32,8 @@
 						<thead class="table-dark">
 							<tr>
 						        <th>Id</th>
-						        <th>Mensaje</th>
 						        <th>Correo</th>
+						        <th>Mensaje</th>
 						    </tr>
 						</thead>
 						<tbody>

@@ -15,7 +15,8 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="row justify-content-center">
-                                <form  method="post" action="{{ route('contacto.crear') }}"  class="row justify-content-center">
+                                <form  action="{{ route('contacto.crear') }}" method="POST"  class="row justify-content-center">
+                                    @csrf
                                     <fieldset class="row justify-content-center">
                                         <legend class="text-center header">Contactenos</legend>
                                         <div class="form-group text-center">

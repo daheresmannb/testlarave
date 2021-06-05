@@ -15,7 +15,12 @@ class ContactoController extends Controller {
 
     public function mensajes() {  
         if(Auth::check()) {
-            return view("mensajes.mensajes");
+            $mensajes = Contacto::all();
+            return view(
+                "mensajes.mensajes", [
+                    "mensajes" => $mensajes
+                ]
+            );
         }
         return redirect("login");
     }
