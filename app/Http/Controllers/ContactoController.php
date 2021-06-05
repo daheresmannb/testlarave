@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Contacto;
 use Illuminate\Http\Request;
 use Validator;
+use Illuminate\Support\Facades\Auth;
 
 class ContactoController extends Controller {
 
@@ -12,7 +13,14 @@ class ContactoController extends Controller {
         return view("contacto.contacto");
     }
 
-    public function create(Request $request) {
+    public function mensajes() {  
+        if(Auth::check()) {
+            return view("mensajes.mensajes");
+        }
+        return redirect("login");
+    }
+
+    public function crear(Request $request) {
         $val = Validator::make(
             $request->all(), [
                 "correo_contacto" => "required",

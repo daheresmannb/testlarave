@@ -81,24 +81,44 @@
                         <label class="form-control">{{ $usuario->direccion }}</label>
                     </div>
                     <div class="form-group col-md-6">
-                        <label for="inputEmail4">Ciudad</label>
-                        <label class="form-control">{{ $usuario->ciudad }}</label>
+                        <label for="inputEmail4">Comuna</label>
+                        <label class="form-control">{{ $usuario->comuna }}</label>
                     </div>
                 </div>
                 <div class="form-row">
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-md-4">
                         <label for="inputEmail4">Enfermedad</label>
-                        <label class="form-control"></label>
+                        <label class="form-control">
+                            @if(count($usuario->enfermedades) > 0)
+                                {{ $usuario->enfermedades->last()->nombre_enfermedad }}
+                            @endif
+                        </label>
                     </div>
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-md-4">
                         <label for="inputEmail4">Tipo</label>
-                        <label class="form-control">Apellidos</label>
+                        <label class="form-control">
+                            @if(count($usuario->enfermedades) > 0)
+                                {{ $usuario->enfermedades->last()->claseenfermedad->nombre }}
+                            @endif
+                        </label>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="inputEmail4">Fecha Ingreso</label>
+                        <label class="form-control">
+                            @if(count($usuario->enfermedades) > 0)
+                                {{ $usuario->enfermedades->last()->created_at }}
+                            @endif
+                        </label>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-12">
                         <label for="inputEmail4">Observación</label>
-                        <label class="form-control">Apellidos</label>
+                        <label class="form-control">
+                            @if(count($usuario->enfermedades) > 0)
+                                {{ $usuario->enfermedades->last()->detalle }}
+                            @endif
+                        </label>
                     </div>
                 </div>
             </div>

@@ -28,7 +28,10 @@ class EnfermedadController extends Controller {
 
     public function tipos() {
         if(Auth::check()) {
-            $tipos = EnfermedadClase::all();
+            $tipos = EnfermedadClase::where(
+                "id", 
+                Auth::user()->id
+            );
             return view(
                 'tipo_enfermedad.tipo_enfermedad', [
                     "tipos_enf" => $tipos

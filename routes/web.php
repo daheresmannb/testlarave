@@ -37,6 +37,13 @@ Route::get(
 );
 
 Route::get(
+	'mensajes', [
+		ContactoController::class, 
+		'mensajes'
+	]
+);
+
+Route::get(
 	'tipos', [
 		EnfermedadController::class, 
 		'tipos'
@@ -67,9 +74,9 @@ Route::post(
 )->name('enfermedad.show'); 
 
 
-Route::get(
+Route::post(
 	'contacto/crear', [
 		ContactoController::class, 
-		'create'
+		'crear'
 	]
-)->name('contacto.create');
+)->name('contacto.crear');

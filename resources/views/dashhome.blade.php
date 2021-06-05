@@ -70,8 +70,13 @@
                 <a href="/home" class="list-group-item list-group-item-action bg-dark">
                     Dashboard
                 </a>
+                <!--
                 <a href="/tipos" class="list-group-item list-group-item-action bg-dark">
                     Tipos Enfermedades
+                </a>
+            -->
+                <a href="/mensajes" class="list-group-item list-group-item-action bg-dark">
+                    Mensajes
                 </a>
                 <a href="/enfermedades" class="list-group-item list-group-item-action bg-dark">
                     Enfermedades
