@@ -52,21 +52,16 @@ Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout')
 Route::post('contacto/crear', [ContactoController::class, 'create'])->name('contacto.crear'); 
 Route::post('contacto/mostrar', [ContactoController::class, 'show'])->name('contacto.mostrar'); 
 
-Route::post(
-	'enfermedad/crear', [
-		ContactoController::class, 
-		'create'
-	]
-)->name('enfermedad.create'); 
+
 Route::post(
 	'enfermedad/actualizar', [
-		ContactoController::class, 
+		EnfermedadController::class, 
 		'update'
 	]
 )->name('enfermedad.update'); 
 Route::post(
 	'enfermedad/mostrar', [
-		ContactoController::class, 
+		EnfermedadController::class, 
 		'show'
 	]
 )->name('enfermedad.show'); 

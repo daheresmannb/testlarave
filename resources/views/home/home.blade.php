@@ -62,27 +62,33 @@
                     </div>
                     <div class="form-group col-md-4">
                         <label for="inputCity">Sexo</label>
-                        <label class="form-control">{{ $usuario->sexo }}</label>
+                        <label class="form-control">
+                            @if($usuario->sexo == 0)
+                                Masculino
+                            @else
+                                Femenino
+                            @endif
+                        </label>
                     </div>
                     <div class="form-group col-md-4">
                         <label for="inputCity">Fecha Nacimiento</label>
-                        <label class="form-control">Sexo</label>
+                        <label class="form-control">{{ $usuario->fecha_nac }}</label>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="inputEmail4">Dirección</label>
-                        <label class="form-control">Apellidos</label>
+                        <label class="form-control">{{ $usuario->direccion }}</label>
                     </div>
                     <div class="form-group col-md-6">
                         <label for="inputEmail4">Ciudad</label>
-                        <label class="form-control">Apellidos</label>
+                        <label class="form-control">{{ $usuario->ciudad }}</label>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="inputEmail4">Enfermedad</label>
-                        <label class="form-control">Apellidos</label>
+                        <label class="form-control"></label>
                     </div>
                     <div class="form-group col-md-6">
                         <label for="inputEmail4">Tipo</label>

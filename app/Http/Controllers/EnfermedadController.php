@@ -12,8 +12,11 @@ class EnfermedadController extends Controller {
 
     public function index() {
         if(Auth::check()) {
+            $tipos = EnfermedadClase::all();
             return view(
-                'enfermedad.enfermedad'
+                'enfermedad.enfermedad', [
+                    "tipos_enf" => $tipos
+                ]
             );
         }
   
